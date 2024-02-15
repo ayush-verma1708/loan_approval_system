@@ -1,0 +1,76 @@
+<style>
+  body {
+    font-family: Arial, sans-serif;
+  }
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  th,
+  td {
+    border: 1px solid black;
+    text-align: left;
+    padding: 8px;
+  }
+  th {
+    background-color: #f2f2f2;
+  }
+</style>
+<h1>Hello {{customer.f_name}}</h1>
+
+<div>
+  <table>
+    <thead>
+      <tr>
+        <th>C ID</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Age</th>
+        <th>Phone Number</th>
+        <th>Monthly Salary</th>
+        <th>Approved Limit</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{ customer.c_id }}</td>
+        <td>{{ customer.f_name }}</td>
+        <td>{{ customer.l_name }}</td>
+        <td>{{ customer.age }}</td>
+        <td>{{ customer.phone_number }}</td>
+        <td>{{ customer.monthly_salary }}</td>
+        <td>{{ customer.approved_limit }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div>
+  <table>
+    <thead>
+      <tr>
+        <th>Loan Count</th>
+        <th>Loan ID</th>
+        <th>Loan Amount</th>
+        <th>Interest Rate</th>
+        <th>Monthly Payment</th>
+        <th>EMI On Time</th>
+      </tr>
+    </thead>
+    <br />
+
+    <tbody>
+      <tr>
+        {% for loan in loans %}
+        <td>{{ forloop.counter }}</td>
+        <td>{{ loan.l_id }}</td>
+        <td>{{ loan.loan_amount }}</td>
+        <td>{{ loan.interest_rate }}</td>
+        <td>{{ loan.monthly_payment }}</td>
+        <td>{{ loan.emi_on_time }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>

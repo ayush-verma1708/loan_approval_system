@@ -1,0 +1,23 @@
+<style>
+  .form-container {
+    width: 50%;
+    margin: 0 auto;
+  }
+  /* To style the form fields */
+  .form-control {
+    margin-bottom: 10px;
+  }
+</style>
+
+<h1>Hello</h1>
+<div class="form-container">
+  <form method="post">
+    {% csrf_token %}
+    <!-- Loop through form fields to apply custom styling -->
+    {% for field in form %}
+    <div class="form-control">{{ field.label_tag }}: {{ field }}</div>
+    {% endfor %}
+    <button type="submit">Submit</button>
+  </form>
+</div>
+{% for c in customer %} {{ c }} {% endfor %}
